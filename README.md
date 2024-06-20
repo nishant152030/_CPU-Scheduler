@@ -38,7 +38,15 @@ Figure 2. Return the response back to frontend
 git clone https://github.com/nishant152030/CPU-Scheduler.git
 ```
 ### Run the Server
+#### Method 1. Using Docker(Preferable)
+- Run the following in the terminal after navigating to the directory.
+  ```
+  docker build -t my-cmake-app.
+  docker run -p 8080:8080 my-cmake-app
+  ```
+#### Method 2. Using executable
 - Open main.exe to start the server at 8080.
+- This method may not work on your device because it is build in windows.
 ### Go to Application
 - 1. Navigate to the templates directory and run the following commands to launch index.html.
      ```
@@ -58,5 +66,6 @@ git clone https://github.com/nishant152030/CPU-Scheduler.git
 ## Dependencies
 - C++ - Used as backend language
 - Crow - Used as C++ framework
+- Docker - To run the application
 - CMake - To generate native build tool files
   
