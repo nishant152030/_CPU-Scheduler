@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPU Scheduler</title>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+  <h1>CPU Scheduling Simulator</h1>
+  <form id="process-form">
+    <label for="algorithm">Select Algorithm:</label>
+    <select id="algorithmSelector" name="algorithmSelector" onchange="showTimeQuantumInput()">
+      <option value="" disabled selected>--------Select Algorithm--------</option>
+      <option value="FCFS">First Come First Serve</option>
+      <option value="SRTF">Shortest Remaining Time First</option>
+      <option value="Priority" >Priority</option>
+      <option value="RR">Round Robin</option>
+      <option value="auto">Auto</option>
+    </select>
+    <div id="timeQuantumInput" class="hidden">
+      <label for="timeQuantum">Enter Time Quantum:</label>
+      <input type="number" id="timeQuantum" name="timeQuantum" min="1">
+    </div>
+    <label for="num-processes">Number of Processes:</label>
+    <input type="number" id="num-processes" name="num-processes" min="1" required>
+    <div id="processes-container"></div>
+    <div id="buttons">
+      <button type="button" onclick="addProcessFields()">Add Processes</button>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  <h2>Results</h2>
+  <pre id="results"></pre>
+    <table id="processTable">
+        <thead>
+            <tr>
+                <th>PID</th>
+                <th>Arrival Time</th>
+                <th>Burst Time</th>
+                <th>Waiting Time</th>
+                <th>Turnaround Time</th>
+                <th>Completion Time</th>
+                <th>Priority</th>
+                <th>Response Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Process rows will be inserted here dynamically -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Averages</td>
+                <td id="avgWaitingTime"></td>
+                <td id="avgTurnaroundTime"></td>
+                <td colspan="3"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
